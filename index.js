@@ -4,6 +4,8 @@ const Manager = require("./lib/manager.js");
 const Engineer = require("./lib/engineer.js");
 const Intern = require("./lib/intern.js");
 const employees = [];
+
+// Generates the basic HTML code that gets inputed to the top of "output.html"
 const top = `
 <!DOCTYPE html>
 <html lang="en">
@@ -41,6 +43,7 @@ const fin = `
 	</body>
 </html>
 `;
+//Runs the code above using FS 
 function topHTML() {
 	fs.writeFile("./dist/output.html", top, function (err) {
 		if (err) {
@@ -49,20 +52,22 @@ function topHTML() {
 	});
 	midHTML(employees);
 }
+
+// builds the 2nd part of the output; adds the employyes, manager, engineer, and intern to the output of the code base.
 function midHTML(employees) {
-	for (let i = 0; i < employees.length; i++) {
+	for (const i = 0; i < employees.length; i++) {
 		const employee = employees[i];
 
-		let role = employee.getRole();
-		let id = employee.getId();
-		let name = employee.getName();
-		let email = employee.getEmail();
+		const role = employee.getRole();
+		const idnum = employee.getId();
+		const name = employee.getName();
+		const email = employee.getEmail();
 
-		let toAppend = ``;
+		const toAppend = ``;
 
 		switch (role) {
 			case "Manager":
-				let office = employee.getOfficeNumber();
+				const office = employee.getOfficeNumber();
 				toAppend = `
 				<div class="col">
 					<div class="card">
@@ -76,7 +81,7 @@ function midHTML(employees) {
 							</p>
 						</div>
 						<ul class="list-group list-group-flush">
-							<li class="list-group-item">ID: ${id}</li>
+							<li class="list-group-item">ID: ${idnum}</li>
 							<li class="list-group-item">
 								Office Number: ${office}
 							</li>
@@ -90,7 +95,7 @@ function midHTML(employees) {
 				break;
 
 			case "Engineer":
-				let github = employee.getGitHub();
+				const github = employee.getGitHub();
 				toAppend = `
 				<div class="col">
 					<div class="card">
@@ -104,7 +109,7 @@ function midHTML(employees) {
 							</p>
 						</div>
 						<ul class="list-group list-group-flush">
-							<li class="list-group-item">ID: ${id}</li>
+							<li class="list-group-item">ID: ${idnum}</li>
 							<li class="list-group-item">
 								Github:
 								<a href="http://www.github.com/${github}">${github}</a>
@@ -119,7 +124,7 @@ function midHTML(employees) {
 				break;
 
 			case "Intern":
-				let school = employee.getSchool();
+				const school = employee.getSchool();
 				toAppend = `
 				<div class="col">
 					<div class="card">
@@ -133,7 +138,7 @@ function midHTML(employees) {
 							</p>
 						</div>
 						<ul class="list-group list-group-flush">
-							<li class="list-group-item">ID: ${id}</li>
+							<li class="list-group-item">ID: ${idnum}</li>
 							<li class="list-group-item">School: ${school}</li>
 							<li class="list-group-item">
 								<a href="mailto:${email}">${email}</a>
@@ -147,7 +152,7 @@ function midHTML(employees) {
 			default:
 				break;
 		}
-
+			// appends the output of the code above to the existing html code used at the begining function.
 		fs.appendFile("./dist/output.html", toAppend, function (err) {
 			if (err) {
 				console.log(err);
@@ -190,7 +195,7 @@ function getInfo() {
 			},
 		])
 		.then((answer) => {
-			let promptMessage;
+			const promptMessage;
 			switch (answer.empRole) {
 				case "Manager":
 					promptMessage = "Office number";
@@ -205,7 +210,7 @@ function getInfo() {
 					break;
 
 				default:
-					console.log("how did you even do that?");
+					console.log("im confused lol");
 			}
 
 			inquirer
@@ -217,12 +222,12 @@ function getInfo() {
 					},
 					{
 						type: "confirm",
-						message: "Is there another employee?",
+						message: "WOuld you like to add another employee?",
 						name: "return",
 					},
 				])
 				.then((response) => {
-					let empToAdd;
+					const empToAdd;
 					switch (answer.empRole) {
 						case "Manager":
 							empToAdd = new Manager(
@@ -261,7 +266,7 @@ function getInfo() {
 					if (response.return) {
 						getInfo();
 					} else {
-						// console.log(employees);
+
 						topHTML();
 					}
 				});

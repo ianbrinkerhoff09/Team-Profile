@@ -6,7 +6,7 @@ describe("Intern", () => {
 		const school = "columbia";
 		const employee = new Intern(
 			"01",
-			"Sage",
+			"Ian",
 			"email@email.com",
 			"columbia"
 		);
@@ -19,7 +19,7 @@ describe("getSchool", () => {
 		const school = "columbia";
 		const employee = new Intern(
 			"01",
-			"Sage",
+			"Ian",
 			"email@email.com",
 			"columbia"
 		);
@@ -32,7 +32,7 @@ describe("getRole", () => {
 		const role = "Intern";
 		const employee = new Intern(
 			"01",
-			"Sage",
+			"Ian",
 			"email@email.com",
 			"columbia"
 		);

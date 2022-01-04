@@ -6,7 +6,7 @@ describe("Engineer", () => {
 		const github = "ianbrinkerhoff09";
 		const employee = new Engineer(
 			"01",
-			"Sage",
+			"Ian",
 			"email@email.com",
 			"ianbrinkerhoff09"
 		);
@@ -19,7 +19,7 @@ describe("getGithub", () => {
 		const github = "ianbrinkehroff09";
 		const employee = new Engineer(
 			"01",
-			"Sage",
+			"Ian",
 			"email@email.com",
 			"ianbrinkehroff09"
 		);
@@ -32,7 +32,7 @@ describe("getRole", () => {
 		const role = "Engineer";
 		const employee = new Engineer(
 			"01",
-			"Sage",
+			"Ian",
 			"email@email.com",
 			"ianbrinkehroff09"
 		);

@@ -7,10 +7,10 @@ describe("Employee", () => {
 		expect(typeof employee).toBe("object");
 	});
 
-	it("Generated Object Has ID", () => {
-		const id = "01";
-		const employee = new Employee("01", "Sage", "email@email.com");
-		expect(employee.id).toBe(id);
+	it("Generated Object Has idnum", () => {
+		const idnumnum = "01";
+		const employee = new Employee("01", "Ian", "email@email.com");
+		expect(employee.idnum).toBe(idnum);
 	});
 
 	it("Generated Object Has Name", () => {
@@ -25,11 +25,11 @@ describe("Employee", () => {
 		expect(employee.email).toBe(email);
 	});
 
-	describe("getId", () => {
-		it("returns id from getId function", () => {
-			const id = "01";
+	describe("getidnum", () => {
+		it("returns idnum from getidnum function", () => {
+			const idnumnum = "01";
 			const employee = new Employee("01", "Ian", "email@email.com");
-			expect(employee.getId()).toBe(id);
+			expect(employee.getidnum()).toBe(idnum);
 		});
 	});
 

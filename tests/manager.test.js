@@ -6,7 +6,7 @@ describe("Manager", () => {
 		const office = "05";
 		const employee = new Manager(
 			"01",
-			"Sage",
+			"Ian",
 			"email@email.com",
 			"05"
 		);
@@ -19,7 +19,7 @@ describe("getOfficeNumber", () => {
 		const office = "05";
 		const employee = new Manager(
 			"01",
-			"Sage",
+			"Ian",
 			"email@email.com",
 			"05"
 		);
@@ -32,7 +32,7 @@ describe("getRole", () => {
 		const role = "Manager";
 		const employee = new Manager(
 			"01",
-			"Sage",
+			"Ian",
 			"email@email.com",
 			"05"
 		);
